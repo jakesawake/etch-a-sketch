@@ -3,26 +3,42 @@ body {
   padding: 0;
   margin: 0;
   display: flex;
+  /*aligning the children of the body so that the square grid is in the center of the page at all times*/
   align-items: center;
   justify-content: center;
+  height: 100vh; /*specifying full viewport height */
+}
+
+.button-container {
+  position: absolute;
+  margin-top: 30px;
+  top: 0;
+  color: white;
 }
 
 .container {
+  /*display: flex and flex-direction: column make the container stack its children (rows) vertically;*/
   display: flex;
   flex-direction: column;
-  height: 600px;
+  height: 600px; /*setting overall grid size*/
   width: 600px;
-  border: 2px solid white;
+  border: 2px solid white; /* adding border around grid */
 }
 
+/*each .row is a flex container in row direction which is the default direction, so its children are arranged horizontally */
 .row {
   display: flex;
-  flex: 1 1 0;
+  flex: 1 1 0; /*each row takes up equal vertical space*/
 }
 
 .square {
-  flex: 1 1 0;
-  aspect-ratio: 1 / 1;
-  border: 1px solid white;
-  box-sizing: border-box;
+  flex: 1 1 0; /* each square takes up equal horizontal space within its row */
+  aspect-ratio: 1 / 1; /* forces each square to be a perfect square */
+  border: 1px solid white; /*Optional: adds visible border between square */
+  box-sizing: border-box; /*Ensures borders are included in square size calculation*/
+}
+
+/*adding this classList to hide/show the grid*/
+.hidden {
+  display: none;
 }
